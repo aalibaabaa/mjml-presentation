@@ -47,9 +47,9 @@
 <div class="reveal">
   <div class="slides">
     <section>
-      <h2>Wege aus der<br/>"Responsive HTML Mail Hölle".<br/>
-        <small>Eine Einführung in MJML</small>
-      </h2>
+      <h2>Wege aus der<br/>"Responsive HTML Mail Hölle"</h2>
+      <h3>Eine Einführung in MJML</h3>
+      <p>rene.bach@coliquio.de<br/>@zipflklatscher</p>
     </section>
     <section>
       <h2>Agenda</h2>
@@ -511,7 +511,8 @@
     <section>
       <h2>Warum Table Design?</h2>
       <ul>
-        <li class="fragment" data-fragment-index="1">Es gibt X verschiedene Mail Clients</li>
+        <li class="fragment" data-fragment-index="1">Es gibt über 70 verschiedene Apps & Mail Clients<br/>
+        <img src="assets/litmus-market-share-03-2017.png" style="height: 50vh"/></li>
         <li class="fragment" data-fragment-index="2">Es gibt keine Standards für diese Clients</li>
       </ul>
     </section>
@@ -920,6 +921,77 @@
         </p>
       </section>
 
+      <section>
+        <h3>Validieren</h3>
+        <div class="col col--half">
+          <pre>
+            <code data-trim data-noescape>$> mjml --validate template.mjml</code>
+          </pre>
+        </div>
+        <div class="col col--half">
+          Über command line testbar
+        </div>
+      </section>
+
+      <section>
+        <h3>JSON Abstraction</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+              const mjml = require('mjml');
+
+              mjml.mjml2html({
+                tagName: 'mjml',
+                attributes: {},
+                children: [{
+                  tagName: 'mj-body',
+                  attributes: {},
+                  children: [{
+                    tagName: 'mj-container',
+                    attributes: {},
+                    children: [{
+                      tagName: 'mj-section',
+                      attributes: {},
+                      children: [{
+                        tagName: 'mj-column',
+                        attributes: {},
+                        children: [{
+                            tagName: 'mj-image',
+                            attributes: {
+                            'width': '100px',
+                            'src': '/assets/img/logo-small.png'
+                            }
+                          },
+                          {
+                            tagName: 'mj-divider',
+                            attributes: {
+                              'border-color' : '#F46E43'
+                            }
+                          },
+                          {
+                          tagName: 'mj-text',
+                          attributes: {
+                            'font-size': '20px',
+                            'color': '#F45E43',
+                            'font-family': 'Helvetica'
+                          },
+                          content: 'Hello World'
+                        }]
+                      }]
+                    }]
+                  }]
+                }]
+              });
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Vereinfacht dynamische Erstellung von Mails</li>
+          </ul>
+        </div>
+      </section>
+
     </section>
 
     <section>
@@ -998,10 +1070,9 @@
       <section>
         <h3>MJML ist hilfreich, weil ...</h3>
         <ul>
-          <li>... es keine Standards gibt</li>
-          <li class="fragment" data-fragment-index="1">... </li>
-          <li class="fragment" data-fragment-index="2">...</li>
-          <li class="fragment" data-fragment-index="3">...</li>
+          <li>... es schnell und einfach ist</li>
+          <li class="fragment" data-fragment-index="1">... es komponentenbasiert ist</li>
+          <li class="fragment" data-fragment-index="2">... es gut testbar ist</li>
         </ul>
       </section>
     </section>
@@ -1014,6 +1085,7 @@
       <h2>Danke für Eure Aufmerksamkeit</h2>
       <img data-src="assets/party-hard.gif" style="width: 20vw"/>
       <p>Let's party</p>
+      <small><a href="https://github.com/aalibaabaa/mjml-presentation">https://github.com/aalibaabaa/mjml-presentation</a></small>
     </section>
   </div>
 </div>
