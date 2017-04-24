@@ -1,0 +1,1049 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>SeeIT Meetup</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/solarized.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+  <style>
+    .col {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .col--one-third {
+      width: 33.33333333%;
+      float: left;
+    }
+
+    .col--half {
+      width: 50%;
+      float: left;
+    }
+
+    .col--two-third {
+      width: 66.66666666%;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h2>Wege aus der<br/>"Responsive HTML Mail Hölle".<br/>
+        <small>Eine Einführung in MJML</small>
+      </h2>
+    </section>
+    <section>
+      <h2>Agenda</h2>
+      <ol>
+        <li>coliquio</li>
+        <li>HTML Emails</li>
+        <li>MJML</li>
+        <li>Zusammenfassung</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>coliquio</h2>
+      <section>
+        <h3>Das ist coliquio</h3>
+      </section>
+      <section>
+        <h3>Email Marketing</h3>
+      </section>
+      <section>
+        <h3>Email Tools</h3>
+        <div class="col col--one-third">
+          <img data-src="assets/mailchimp-logo.png" style="height: 200px"/>
+        </div>
+        <div class="col col--one-third">
+          <img data-src="assets/mandrill-logo.png" style="height: 200px" />
+        </div>
+        <div class="col col--one-third">
+          <img data-src="assets/litmus-logo.jpg" />
+        </div>
+      </section>
+    </section>
+
+    <section>
+      <h2>HTML Mails</h2>
+      <section>
+        <div class="col col--two-third">
+          <img data-src="assets/mail-final-responsive-views.png"/>
+        </div>
+        <div class="col col--one-third">
+          <h3>Example Mail</h3>
+        </div>
+      </section>
+      <section>
+        <div class="col col--two-third">
+          <pre>
+          <code data-trim data-noescape>
+          &#x3C;!DOCTYPE html&#x3E;
+          &#x3C;html lang=&#x22;en&#x22;&#x3E;
+            &#x3C;head&#x3E;
+              &#x3C;meta charset=&#x22;UTF-8&#x22;&#x3E;
+              &#x3C;meta name=&#x22;viewport&#x22; content=&#x22;width=device-width, initial-scale=1&#x22;&#x3E;
+              &#x3C;title&#x3E;Title&#x3C;/title&#x3E;
+              &#x3C;style&#x3E;
+                body {
+                  font-family: &#x27;Source Sans Pro&#x27;, sans-serif
+                }
+
+                .section {
+                  box-sizing: border-box;
+                  padding: 16px 24px;
+                }
+
+                .link {
+                  text-decoration: none;
+                }
+
+                .heading3 {
+                  color: #2581c4;
+                }
+
+                .container {
+                  margin: 0 auto;
+                  max-width: 600px;
+                }
+
+                .image {
+                  display: block;
+                  margin: 0 auto;
+                }
+
+                .divider {
+                  margin: 8px 0;
+                  border: 2px solid #2581c4;
+                }
+
+                .column {
+                  padding: 10px 25px;
+                  margin: 0;
+                  box-sizing: border-box;
+                }
+
+                .column--third {
+                  width: 100%;
+                  display: block;
+                }
+
+                @media screen and (min-width: 600px) {
+                  .column--third {
+                    float: left;
+                    width: 33.33333333%;
+                  }
+                }
+              &#x3C;/style&#x3E;
+            &#x3C;/head&#x3E;
+            &#x3C;body&#x3E;
+              &#x3C;div class=&#x22;container&#x22;&#x3E;
+                &#x3C;section class=&#x22;section&#x22;&#x3E;
+                  &#x3C;a href=&#x22;https://coliquio.de&#x22; class=&#x22;link&#x22;&#x3E;
+                    &#x3C;img src=&#x22;https://customer.coliquio.de/assets/coliquio/dist/images/logo_brand_name.svg&#x22; alt=&#x22;&#x22; width=&#x22;100&#x22;
+                         class=&#x22;image&#x22;/&#x3E;
+                  &#x3C;/a&#x3E;
+                  &#x3C;hr class=&#x22;divider&#x22;/&#x3E;
+                &#x3C;/section&#x3E;
+                &#x3C;section class=&#x22;section&#x22;&#x3E;
+                  &#x3C;div class=&#x22;column column--third&#x22;&#x3E;
+                    &#x3C;img src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_impact.svg&#x22; class=&#x22;image&#x22; alt=&#x22;&#x22; width=&#x22;100&#x22;/&#x3E;
+                    &#x3C;h3 class=&#x22;heading3&#x22;&#x3E;Section 1&#x3C;/h3&#x3E;
+                    &#x3C;p class=&#x22;paragraph&#x22;&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang,
+                      consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis,
+                      gravida vel, arcu.&#x3C;/p&#x3E;
+                  &#x3C;/div&#x3E;
+                  &#x3C;div class=&#x22;column column--third&#x22;&#x3E;
+                    &#x3C;img src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_insight.svg&#x22; class=&#x22;image&#x22; alt=&#x22;&#x22; width=&#x22;100&#x22;/&#x3E;
+                    &#x3C;h3 class=&#x22;heading3&#x22;&#x3E;Section 2&#x3C;/h3&#x3E;
+                    &#x3C;p class=&#x22;paragraph&#x22;&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang,
+                      consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis,
+                      gravida vel, arcu.&#x3C;/p&#x3E;
+                  &#x3C;/div&#x3E;
+                  &#x3C;div class=&#x22;column column--third&#x22;&#x3E;
+                    &#x3C;img src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_syndication.svg&#x22; class=&#x22;image&#x22; alt=&#x22;&#x22; width=&#x22;100&#x22;/&#x3E;
+                    &#x3C;h3 class=&#x22;heading3&#x22;&#x3E;Section 3&#x3C;/h3&#x3E;
+                    &#x3C;p class=&#x22;paragraph&#x22;&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang,
+                      consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis,
+                      gravida vel, arcu.&#x3C;/p&#x3E;
+                  &#x3C;/div&#x3E;
+                &#x3C;/section&#x3E;
+              &#x3C;/div&#x3E;
+            &#x3C;/body&#x3E;
+          &#x3C;/html&#x3E;
+          </code>
+        </pre>
+        </div>
+        <div class="col col--one-third">
+          <h3>in 2017</h3>
+          <ul>
+            <li>~ 80 lines of code</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Läuft in allen relevanten Browsern</h3>
+      </section>
+
+      <section>
+        <h3>Wie sieht es mit Mail-Clients aus?</h3>
+
+        <div class="col col--one-third fragment" data-fragment-index="1" >
+          <img src="assets/chromegmailnew-vertical-allowed-1366.png" style="height:50vh"/>
+        </div>
+        <div class="col col--one-third fragment" data-fragment-index="2" >
+          <img src="assets/androidgmailapp-vertical-allowed-1366.png" style="height:50vh"/>
+        </div>
+        <div class="col col--one-third fragment" data-fragment-index="3" >
+          <img src="assets/chromeoutlookcom-vertical-allowed-1366.png" style="height:50vh"/>
+        </div>
+      </section>
+
+      <section>
+        <h3>Oh, oh,...</h3>
+        <ul>
+          <li>Breakpoint greift nicht</li>
+          <li class="fragment" data-fragment-index="1">Bilder sind nicht zentriert</li>
+          <li class="fragment" data-fragment-index="3">SVG werden nicht immer unterstützt</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Back to the 90s</h3>
+        <p>Wir brauchen Tabellen</p>
+      </section>
+
+      <section>
+        <div class="col col--two-third">
+        <pre>
+          <code data-trim data-noescape>
+            &#x3C;html xmlns=&#x22;http://www.w3.org/1999/xhtml&#x22; xmlns:v=&#x22;urn:schemas-microsoft-com:vml&#x22; xmlns:o=&#x22;urn:schemas-microsoft-com:office:office&#x22;&#x3E;&#x3C;head&#x3E;
+              &#x3C;title&#x3E;&#x3C;/title&#x3E;
+              &#x3C;!--[if !mso]&#x3E;&#x3C;!-- --&#x3E;
+              &#x3C;meta http-equiv=&#x22;X-UA-Compatible&#x22; content=&#x22;IE=edge&#x22;&#x3E;
+              &#x3C;!--&#x3C;![endif]--&#x3E;
+              &#x3C;meta http-equiv=&#x22;Content-Type&#x22; content=&#x22;text/html; charset=UTF-8&#x22;&#x3E;
+              &#x3C;style type=&#x22;text/css&#x22;&#x3E;
+                #outlook a {
+                  padding: 0;
+                }
+
+                .ReadMsgBody {
+                  width: 100%;
+                }
+
+                .ExternalClass {
+                  width: 100%;
+                }
+
+                .ExternalClass * {
+                  line-height: 100%;
+                }
+
+                body {
+                  margin: 0;
+                  padding: 0;
+                  -webkit-text-size-adjust: 100%;
+                  -ms-text-size-adjust: 100%;
+                }
+
+                table,
+                td {
+                  border-collapse: collapse;
+                  mso-table-lspace: 0pt;
+                  mso-table-rspace: 0pt;
+                }
+
+                img {
+                  border: 0;
+                  height: auto;
+                  line-height: 100%;
+                  outline: none;
+                  text-decoration: none;
+                  -ms-interpolation-mode: bicubic;
+                }
+
+                p {
+                  display: block;
+                  margin: 13px 0;
+                }
+              &#x3C;/style&#x3E;
+              &#x3C;!--[if !mso]&#x3E;&#x3C;!--&#x3E;
+              &#x3C;style type=&#x22;text/css&#x22;&#x3E;
+                @media only screen and (max-width:480px) {
+                  @-ms-viewport {
+                    width: 320px;
+                  }
+                  @viewport {
+                    width: 320px;
+                  }
+                }
+              &#x3C;/style&#x3E;
+              &#x3C;!--&#x3C;![endif]--&#x3E;
+              &#x3C;!--[if mso]&#x3E;
+            &#x3C;xml&#x3E;
+              &#x3C;o:OfficeDocumentSettings&#x3E;
+                &#x3C;o:AllowPNG/&#x3E;
+                &#x3C;o:PixelsPerInch&#x3E;96&#x3C;/o:PixelsPerInch&#x3E;
+              &#x3C;/o:OfficeDocumentSettings&#x3E;
+            &#x3C;/xml&#x3E;
+            &#x3C;![endif]--&#x3E;
+              &#x3C;!--[if lte mso 11]&#x3E;
+            &#x3C;style type=&#x22;text/css&#x22;&#x3E;
+              .outlook-group-fix {
+                width:100% !important;
+              }
+            &#x3C;/style&#x3E;
+            &#x3C;![endif]--&#x3E;
+
+              &#x3C;!--[if !mso]&#x3E;&#x3C;!--&#x3E;
+              &#x3C;link href=&#x22;https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&#x22; rel=&#x22;stylesheet&#x22; type=&#x22;text/css&#x22;&#x3E;
+              &#x3C;style type=&#x22;text/css&#x22;&#x3E;
+                @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
+              &#x3C;/style&#x3E;
+              &#x3C;!--&#x3C;![endif]--&#x3E;
+              &#x3C;style type=&#x22;text/css&#x22;&#x3E;
+                @media only screen and (min-width:480px) {
+                  .mj-column-per-100 {
+                    width: 100%!important;
+                  }
+                  .mj-column-per-33 {
+                    width: 33.333333333333336%!important;
+                  }
+                }
+              &#x3C;/style&#x3E;
+            &#x3C;/head&#x3E;
+
+            &#x3C;body&#x3E;
+              &#x3C;div&#x3E;
+                &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;table role=&#x22;presentation&#x22; border=&#x22;0&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; width=&#x22;600&#x22; align=&#x22;center&#x22; style=&#x22;width:600px;&#x22;&#x3E;
+                    &#x3C;tr&#x3E;
+                      &#x3C;td style=&#x22;line-height:0px;font-size:0px;mso-line-height-rule:exactly;&#x22;&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                &#x3C;div style=&#x22;margin:0px auto;max-width:600px;&#x22;&#x3E;
+                  &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; style=&#x22;font-size:0px;width:100%;&#x22; align=&#x22;center&#x22; border=&#x22;0&#x22;&#x3E;
+                    &#x3C;tbody&#x3E;
+                      &#x3C;tr&#x3E;
+                        &#x3C;td style=&#x22;text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;&#x22;&#x3E;
+                          &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;table role=&#x22;presentation&#x22; border=&#x22;0&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22;&#x3E;&#x3C;tr&#x3E;&#x3C;td style=&#x22;vertical-align:top;width:600px;&#x22;&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                          &#x3C;div class=&#x22;mj-column-per-100 outlook-group-fix&#x22; style=&#x22;vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;&#x22;&#x3E;
+                            &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; width=&#x22;100%&#x22; border=&#x22;0&#x22;&#x3E;
+                              &#x3C;tbody&#x3E;
+                                &#x3C;tr&#x3E;
+                                  &#x3C;td style=&#x22;word-break:break-word;font-size:0px;padding:10px 25px;&#x22; align=&#x22;center&#x22;&#x3E;
+                                    &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; style=&#x22;border-collapse:collapse;border-spacing:0px;&#x22; align=&#x22;center&#x22; border=&#x22;0&#x22;&#x3E;
+                                      &#x3C;tbody&#x3E;
+                                        &#x3C;tr&#x3E;
+                                          &#x3C;td style=&#x22;width:100px;&#x22;&#x3E;&#x3C;img alt=&#x22;&#x22; title=&#x22;&#x22; height=&#x22;auto&#x22; src=&#x22;https://customer.coliquio.de/assets/coliquio/dist/images/logo_brand_name.svg&#x22; style=&#x22;border:none;border-radius:0px;display:block;outline:none;text-decoration:none;width:100%;height:auto;&#x22; width=&#x22;100&#x22;&#x3E;&#x3C;/td&#x3E;
+                                        &#x3C;/tr&#x3E;
+                                      &#x3C;/tbody&#x3E;
+                                    &#x3C;/table&#x3E;
+                                  &#x3C;/td&#x3E;
+                                &#x3C;/tr&#x3E;
+                                &#x3C;tr&#x3E;
+                                  &#x3C;td style=&#x22;word-break:break-word;font-size:0px;padding:10px 25px;&#x22;&#x3E;
+                                    &#x3C;p style=&#x22;font-size:1px;margin:0px auto;border-top:4px solid #2581c4;width:100%;&#x22;&#x3E;&#x3C;/p&#x3E;
+                                    &#x3C;!--[if mso | IE]&#x3E;&#x3C;table role=&#x22;presentation&#x22; align=&#x22;center&#x22; border=&#x22;0&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; style=&#x22;font-size:1px;margin:0px auto;border-top:4px solid #2581c4;width:100%;&#x22; width=&#x22;600&#x22;&#x3E;&#x3C;tr&#x3E;&#x3C;td style=&#x22;height:0;line-height:0;&#x22;&#x3E;&#x26;nbsp;&#x3C;/td&#x3E;&#x3C;/tr&#x3E;&#x3C;/table&#x3E;&#x3C;![endif]--&#x3E;
+                                  &#x3C;/td&#x3E;
+                                &#x3C;/tr&#x3E;
+                              &#x3C;/tbody&#x3E;
+                            &#x3C;/table&#x3E;
+                          &#x3C;/div&#x3E;
+                          &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;/td&#x3E;&#x3C;/tr&#x3E;&#x3C;/table&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                        &#x3C;/td&#x3E;
+                      &#x3C;/tr&#x3E;
+                    &#x3C;/tbody&#x3E;
+                  &#x3C;/table&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;/td&#x3E;&#x3C;/tr&#x3E;&#x3C;/table&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;table role=&#x22;presentation&#x22; border=&#x22;0&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; width=&#x22;600&#x22; align=&#x22;center&#x22; style=&#x22;width:600px;&#x22;&#x3E;
+                    &#x3C;tr&#x3E;
+                      &#x3C;td style=&#x22;line-height:0px;font-size:0px;mso-line-height-rule:exactly;&#x22;&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                &#x3C;div style=&#x22;margin:0px auto;max-width:600px;&#x22;&#x3E;
+                  &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; style=&#x22;font-size:0px;width:100%;&#x22; align=&#x22;center&#x22; border=&#x22;0&#x22;&#x3E;
+                    &#x3C;tbody&#x3E;
+                      &#x3C;tr&#x3E;
+                        &#x3C;td style=&#x22;text-align:center;vertical-align:top;direction:ltr;font-size:0px;padding:0px;&#x22;&#x3E;
+                          &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;table role=&#x22;presentation&#x22; border=&#x22;0&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22;&#x3E;&#x3C;tr&#x3E;&#x3C;td style=&#x22;vertical-align:top;width:200px;&#x22;&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                          &#x3C;div class=&#x22;mj-column-per-33 outlook-group-fix&#x22; style=&#x22;vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;&#x22;&#x3E;
+                            &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; width=&#x22;100%&#x22; border=&#x22;0&#x22;&#x3E;
+                              &#x3C;tbody&#x3E;
+                                &#x3C;tr&#x3E;
+                                  &#x3C;td style=&#x22;word-break:break-word;font-size:0px;padding:10px 25px;&#x22; align=&#x22;center&#x22;&#x3E;
+                                    &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; style=&#x22;border-collapse:collapse;border-spacing:0px;&#x22; align=&#x22;center&#x22; border=&#x22;0&#x22;&#x3E;
+                                      &#x3C;tbody&#x3E;
+                                        &#x3C;tr&#x3E;
+                                          &#x3C;td style=&#x22;width:100px;&#x22;&#x3E;&#x3C;img alt=&#x22;&#x22; title=&#x22;&#x22; height=&#x22;auto&#x22; src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_impact.svg&#x22; style=&#x22;border:none;border-radius:0px;display:block;outline:none;text-decoration:none;width:100%;height:auto;&#x22; width=&#x22;100&#x22;&#x3E;&#x3C;/td&#x3E;
+                                        &#x3C;/tr&#x3E;
+                                      &#x3C;/tbody&#x3E;
+                                    &#x3C;/table&#x3E;
+                                  &#x3C;/td&#x3E;
+                                &#x3C;/tr&#x3E;
+                                &#x3C;tr&#x3E;
+                                  &#x3C;td style=&#x22;word-break:break-word;font-size:0px;padding:10px 25px;&#x22; align=&#x22;left&#x22;&#x3E;
+                                    &#x3C;div class=&#x22;&#x22; style=&#x22;cursor:auto;color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;text-align:left;&#x22;&#x3E;
+                                      &#x3C;h3 class=&#x22;heading3&#x22; style=&#x22;color: #2581c4;&#x22;&#x3E;Section 1&#x3C;/h3&#x3E;
+                                      &#x3C;p&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.&#x3C;/p&#x3E;
+                                    &#x3C;/div&#x3E;
+                                  &#x3C;/td&#x3E;
+                                &#x3C;/tr&#x3E;
+                              &#x3C;/tbody&#x3E;
+                            &#x3C;/table&#x3E;
+                          &#x3C;/div&#x3E;
+                          &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;/td&#x3E;&#x3C;td style=&#x22;vertical-align:top;width:200px;&#x22;&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                          &#x3C;div class=&#x22;mj-column-per-33 outlook-group-fix&#x22; style=&#x22;vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;&#x22;&#x3E;
+                            &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; width=&#x22;100%&#x22; border=&#x22;0&#x22;&#x3E;
+                              &#x3C;tbody&#x3E;
+                                &#x3C;tr&#x3E;
+                                  &#x3C;td style=&#x22;word-break:break-word;font-size:0px;padding:10px 25px;&#x22; align=&#x22;center&#x22;&#x3E;
+                                    &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; style=&#x22;border-collapse:collapse;border-spacing:0px;&#x22; align=&#x22;center&#x22; border=&#x22;0&#x22;&#x3E;
+                                      &#x3C;tbody&#x3E;
+                                        &#x3C;tr&#x3E;
+                                          &#x3C;td style=&#x22;width:100px;&#x22;&#x3E;&#x3C;img alt=&#x22;&#x22; title=&#x22;&#x22; height=&#x22;auto&#x22; src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_insight.svg&#x22; style=&#x22;border:none;border-radius:0px;display:block;outline:none;text-decoration:none;width:100%;height:auto;&#x22; width=&#x22;100&#x22;&#x3E;&#x3C;/td&#x3E;
+                                        &#x3C;/tr&#x3E;
+                                      &#x3C;/tbody&#x3E;
+                                    &#x3C;/table&#x3E;
+                                  &#x3C;/td&#x3E;
+                                &#x3C;/tr&#x3E;
+                                &#x3C;tr&#x3E;
+                                  &#x3C;td style=&#x22;word-break:break-word;font-size:0px;padding:10px 25px;&#x22; align=&#x22;left&#x22;&#x3E;
+                                    &#x3C;div class=&#x22;&#x22; style=&#x22;cursor:auto;color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;text-align:left;&#x22;&#x3E;
+                                      &#x3C;h3 class=&#x22;heading3&#x22; style=&#x22;color: #2581c4;&#x22;&#x3E;Section 2&#x3C;/h3&#x3E;
+                                      &#x3C;p&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.&#x3C;/p&#x3E;
+                                    &#x3C;/div&#x3E;
+                                  &#x3C;/td&#x3E;
+                                &#x3C;/tr&#x3E;
+                              &#x3C;/tbody&#x3E;
+                            &#x3C;/table&#x3E;
+                          &#x3C;/div&#x3E;
+                          &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;/td&#x3E;&#x3C;td style=&#x22;vertical-align:top;width:200px;&#x22;&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                          &#x3C;div class=&#x22;mj-column-per-33 outlook-group-fix&#x22; style=&#x22;vertical-align:top;display:inline-block;direction:ltr;font-size:13px;text-align:left;width:100%;&#x22;&#x3E;
+                            &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; width=&#x22;100%&#x22; border=&#x22;0&#x22;&#x3E;
+                              &#x3C;tbody&#x3E;
+                                &#x3C;tr&#x3E;
+                                  &#x3C;td style=&#x22;word-break:break-word;font-size:0px;padding:10px 25px;&#x22; align=&#x22;center&#x22;&#x3E;
+                                    &#x3C;table role=&#x22;presentation&#x22; cellpadding=&#x22;0&#x22; cellspacing=&#x22;0&#x22; style=&#x22;border-collapse:collapse;border-spacing:0px;&#x22; align=&#x22;center&#x22; border=&#x22;0&#x22;&#x3E;
+                                      &#x3C;tbody&#x3E;
+                                        &#x3C;tr&#x3E;
+                                          &#x3C;td style=&#x22;width:100px;&#x22;&#x3E;&#x3C;img alt=&#x22;&#x22; title=&#x22;&#x22; height=&#x22;auto&#x22; src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_syndication.svg&#x22; style=&#x22;border:none;border-radius:0px;display:block;outline:none;text-decoration:none;width:100%;height:auto;&#x22; width=&#x22;100&#x22;&#x3E;&#x3C;/td&#x3E;
+                                        &#x3C;/tr&#x3E;
+                                      &#x3C;/tbody&#x3E;
+                                    &#x3C;/table&#x3E;
+                                  &#x3C;/td&#x3E;
+                                &#x3C;/tr&#x3E;
+                                &#x3C;tr&#x3E;
+                                  &#x3C;td style=&#x22;word-break:break-word;font-size:0px;padding:10px 25px;&#x22; align=&#x22;left&#x22;&#x3E;
+                                    &#x3C;div class=&#x22;&#x22; style=&#x22;cursor:auto;color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;text-align:left;&#x22;&#x3E;
+                                      &#x3C;h3 class=&#x22;heading3&#x22; style=&#x22;color: #2581c4;&#x22;&#x3E;Section 3&#x3C;/h3&#x3E;
+                                      &#x3C;p&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.&#x3C;/p&#x3E;
+                                    &#x3C;/div&#x3E;
+                                  &#x3C;/td&#x3E;
+                                &#x3C;/tr&#x3E;
+                              &#x3C;/tbody&#x3E;
+                            &#x3C;/table&#x3E;
+                          &#x3C;/div&#x3E;
+                          &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;/td&#x3E;&#x3C;/tr&#x3E;&#x3C;/table&#x3E;
+                  &#x3C;![endif]--&#x3E;
+                        &#x3C;/td&#x3E;
+                      &#x3C;/tr&#x3E;
+                    &#x3C;/tbody&#x3E;
+                  &#x3C;/table&#x3E;
+                &#x3C;/div&#x3E;
+                &#x3C;!--[if mso | IE]&#x3E;
+                  &#x3C;/td&#x3E;&#x3C;/tr&#x3E;&#x3C;/table&#x3E;
+                  &#x3C;![endif]--&#x3E;
+              &#x3C;/div&#x3E;
+
+
+            &#x3C;/body&#x3E;
+          &#x3C;/html&#x3E;
+          </code>
+        </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Table Design</li>
+            <li>Viele Conditional-Tags</li>
+            <li>~300 Zeilen Code !!!</li>
+            <li>Maintenance = Hölle</li>
+          </ul>
+        </div>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>Warum Table Design?</h2>
+      <ul>
+        <li class="fragment" data-fragment-index="1">Es gibt X verschiedene Mail Clients</li>
+        <li class="fragment" data-fragment-index="2">Es gibt keine Standards für diese Clients</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Test Tools</h2>
+      <section>
+        <h3>Mailchimp</h3>
+        <img data-src="assets/mailchimp-demo.png" style="height:60vh"/>
+      </section>
+
+      <section>
+        <h3>Mailchimp / Litmus</h3>
+        <img src="assets/mailchimp-litmus-dom.png" style="height:60vh"/>
+      </section>
+    </section>
+
+    <section>
+      <h2>Mail Jet Markup Language - MJML</h2>
+      <section>
+        <h3>Idee</h3>
+        <ul>
+          <li class="fragment" data-fragment-index="1">Entwickelt vom MailJet</li>
+          <li class="fragment" data-fragment-index="2">Emails schnell und einfach erstellen</li>
+          <li class="fragment" data-fragment-index="3">Responsive Mails vereinfachen</li>
+          <li class="fragment" data-fragment-index="4">Komponentenbasiert</li>
+        </ul>
+      </section>
+      <section>
+        <h3>MJML-Gerüst</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+              &#x3C;mjml&#x3E;
+                &#x3C;mjml-head&#x3E;
+                  ...
+                &#x3C;/mjml-head&#x3E;
+                &#x3C;mjml-body&#x3E;
+                  ...
+                &#x3C;/mjml-body&#x3E;
+              &#x3C;/mjml&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>mjml</li>
+            <li>head (globale Settings)</li>
+            <li>body (Darstellungsebene)</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section>
+        <h3>Body > Container</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container background-color="#fff"&#x3E;
+                    &#x3C;!-- Your email goes here --&#x3E;
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Startpunkt der Email</li>
+            <li>width (default: 600px)</li>
+            <li>background-color</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Body > Container > Section</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container background-color="#fff"&#x3E;
+
+                    &#x3C;mjml-section&#x3E;
+                      &#x3C;!-- Your email goes here --&#x3E;
+                    &#x3C;/mjml-section&#x3E;
+
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Section = Zeile der Email</li>
+            <li>Sections nicht verschachteln</li>
+            <li>Inhalt von columns umschlossen</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Body > Container > Section > Column</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container&#x3E;
+                    &#x3C;mjml-section&#x3E;
+
+                      &#x3C;mjml-column&#x3E;
+                        &#x3C;!-- Spalte 1 --&#x3E;
+                      &#x3C;/mjml-column&#x3E;
+                      &#x3C;mjml-column&#x3E;
+                        &#x3C;!-- Spalte 2 --&#x3E;
+                      &#x3C;/mjml-column&#x3E;
+
+                    &#x3C;/mjml-section&#x3E;
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Column = Spalte in Zeile</li>
+            <li>Columns nicht verschachteln</li>
+            <li>Keine Sections in Columns</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Body > Container > Section > Column > Text</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container&#x3E;
+                    &#x3C;mjml-section&#x3E;
+                      &#x3C;mjml-column&#x3E;
+
+                        &#x3C;mjml-text padding="24px 16px"&#x3E;
+                          &#x3C;h1 style="color:#ff9900;"&#x3E;Email Titel&#x3C;/h1&#x3E;
+                          &#x3C;p&#x3E;Schön, dass Sie diese Mail lesen...&#x3C;/p&#x3E;
+                        &#x3C;/mjml-text&#x3E;
+
+                      &#x3C;/mjml-column&#x3E;
+                    &#x3C;/mjml-section&#x3E;
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>MJML-Text kann jegliche Art von HTML Tags enthalten</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Body > Container > Section > Column > Image</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container&#x3E;
+                    &#x3C;mjml-section&#x3E;
+                      &#x3C;mjml-column&#x3E;
+
+                        &#x3C;mjml-image
+                          src="https://coliquio.de/logo.png"
+                          width="100px"
+                          align="center"
+                          alt="Logo" /&#x3E;
+
+                      &#x3C;/mjml-column&#x3E;
+                    &#x3C;/mjml-section&#x3E;
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Responsive Image</li>
+            <li>Width per default = 100%</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Body > Container > Section > Column > Button</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container&#x3E;
+                    &#x3C;mjml-section&#x3E;
+                      &#x3C;mjml-column&#x3E;
+
+                        &#x3C;mjml-button
+                          font-family="Helvetica"
+                          background-color="#f45e43"
+                          color="#ffffff"
+                          border-radius="8px"&#x3E;
+                          Click Me!
+                        &#x3C;/mjml-button&#x3E;
+
+                      &#x3C;/mjml-column&#x3E;
+                    &#x3C;/mjml-section&#x3E;
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Custom Button</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Body > Container > Section > Column > Sonstige</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+              &#x3C;mjml-column&#x3E;
+
+                  &#x3C;mj-social
+                    mode="vertical" display="google"
+                    google-icon-color="#424242" google-href="My google page"/&#x3E;
+
+                  &#x3C;mj-divider border-width="1px" border-color="lightgrey" /&#x3E;
+
+                  &#x3C;mj-location address="37 bis, rue du Sentier 75002 Paris" /&#x3E;
+
+              &#x3C;/mjml-column&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li><img data-src="assets/mjml-social.png" height="90px"></li>
+            <li>Divider</li>
+            <li><img src="assets/mjml-location.png" height="90px"></li>
+            <li>Accordion</li>
+            <li>Carousel</li>
+            <li>Hero</li>
+            <li>...</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Head</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+              &#x3C;mjml-head&#x3E;
+                ...
+              &#x3C;/mjml-head&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Globale Settings</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Head > Attributes</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+              &#x3C;mjml&#x3E;
+                &#x3C;mjml-head&#x3E;
+
+                  &#x3C;mj-attributes&#x3E;
+                     &#x3C;mj-all font-family="Arial"/&#x3E;
+                     &#x3C;mj-text padding="24px 16px"/&#x3E;
+                     &#x3C;mj-class name="blue" color="blue"/&#x3E;
+                     &#x3C;mj-class name="big" font-size="20px"/&#x3E;
+                  &#x3C;/mj-attributes&#x3E;
+
+                &#x3C;/mjml-head&#x3E;
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container&#x3E;
+                    &#x3C;mjml-section&#x3E;
+                      &#x3C;mjml-column&#x3E;
+
+                        &#x3C;mjml-text class="blue big"&#x3E;
+                          Hello World
+                        &#x3C;/mjml-text&#x3E;
+
+                      &#x3C;/mjml-column&#x3E;
+                    &#x3C;/mjml-section&#x3E;
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+              &#x3C;/mjml&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>all => Alle Elemente</li>
+            <li>{tag} => alle {tag}-Elemente</li>
+            <li>class => Klassen für mjml-Elemente</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Head > Style</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+              &#x3C;mjml&#x3E;
+                &#x3C;mjml-head&#x3E;
+
+                  &#x3C;mj-style&#x3E;
+                    @media all and (max-width: 480px) {
+                      div[style*="color:#F45e46;"] {
+                        text-align: center !important
+                      }
+                    }
+                  &#x3C;/mj-style&#x3E;
+                  &#x3C;mj-style inline="inline"&#x3E;
+                    .link-nostyle {
+                      color: inherit;
+                      text-decoration: none
+                    }
+                  &#x3C;/mj-style&#x3E;
+
+                &#x3C;/mjml-head&#x3E;
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container&#x3E;
+                    &#x3C;mjml-section&#x3E;
+                      &#x3C;mjml-column&#x3E;
+
+                        &#x3C;mjml-text&#x3E;
+                          Hello &#x3C;a href="http://world.com" class="link-nostyle"&#x3E;World&#x3C;/a&#x3E;
+                        &#x3C;/mjml-text&#x3E;
+
+                      &#x3C;/mjml-column&#x3E;
+                    &#x3C;/mjml-section&#x3E;
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+              &#x3C;/mjml&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>CSS Styles werden im HTML-Dokument eingefügt</li>
+            <li>inline="inline" => Zuätzlich als Inline-Style</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Head > Style</h3>
+        <div class="col col--two-third">
+          <pre>
+            <code data-trim data-noescape>
+              &#x3C;mjml&#x3E;
+                &#x3C;mjml-head&#x3E;
+
+                  &#x3C;mj-font name="Raleway" href="https://fonts.googleapis.com/css?family=Raleway" /&#x3E;
+
+                &#x3C;/mjml-head&#x3E;
+                &#x3C;mjml-body&#x3E;
+                  &#x3C;mjml-container&#x3E;
+                    &#x3C;mjml-section&#x3E;
+                      &#x3C;mjml-column&#x3E;
+
+                        &#x3C;mjml-text font-family="Raleway, Arial"&#x3E;
+                          Hello World
+                        &#x3C;/mjml-text&#x3E;
+
+                      &#x3C;/mjml-column&#x3E;
+                    &#x3C;/mjml-section&#x3E;
+                  &#x3C;/mjml-container&#x3E;
+                &#x3C;/mjml-body&#x3E;
+              &#x3C;/mjml&#x3E;
+            </code>
+          </pre>
+        </div>
+        <div class="col col--one-third">
+          <ul>
+            <li>Importiert Fonts ins Dokument</li>
+          </ul>
+        </div>
+      </section>
+
+
+      <section>
+        <h3>Custom Elements</h3>
+        <p>Boilerplate: <br/>
+          <a href="https://github.com/mjmlio/mjml-component-boilerplate">https://github.com/mjmlio/mjml-component-boilerplate</a>
+        </p>
+      </section>
+
+    </section>
+
+    <section>
+      <h2>Zurück zu unserem Beispiel</h2>
+      <div class="col col--two-third">
+      <pre>
+        <code data-trim data-noescape>
+          &#x3C;mjml&#x3E;
+            &#x3C;mj-head&#x3E;
+              &#x3C;mj-attributes&#x3E;
+                &#x3C;mj-section padding=&#x22;0&#x22;/&#x3E;
+                &#x3C;mj-image width=&#x22;100px&#x22; align=&#x22;center&#x22;/&#x3E;
+              &#x3C;/mj-attributes&#x3E;
+              &#x3C;mj-style inline=&#x22;inline&#x22;&#x3E;
+                .heading3 {
+                  color:#2581c4;
+                }
+              &#x3C;/mj-style&#x3E;
+            &#x3C;/mj-head&#x3E;
+            &#x3C;mj-body&#x3E;
+              &#x3C;mj-container&#x3E;
+
+                &#x3C;mj-section&#x3E;
+                  &#x3C;mj-column&#x3E;
+                    &#x3C;mj-image src=&#x22;https://customer.coliquio.de/assets/coliquio/dist/images/logo_brand_name.svg&#x22;/&#x3E;
+                    &#x3C;mj-divider border-color=&#x22;#2581c4&#x22;&#x3E;&#x3C;/mj-divider&#x3E;
+                  &#x3C;/mj-column&#x3E;
+                &#x3C;/mj-section&#x3E;
+
+                &#x3C;mj-section&#x3E;
+                  &#x3C;mj-column&#x3E;
+                    &#x3C;mj-image src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_impact.svg&#x22;/&#x3E;
+                    &#x3C;mj-text&#x3E;
+                      &#x3C;h3 class=&#x22;heading3&#x22;&#x3E;Section 1&#x3C;/h3&#x3E;
+                      &#x3C;p&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.&#x3C;/p&#x3E;
+                    &#x3C;/mj-text&#x3E;
+                  &#x3C;/mj-column&#x3E;
+                  &#x3C;mj-column&#x3E;
+                    &#x3C;mj-image src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_insight.svg&#x22;/&#x3E;
+                    &#x3C;mj-text&#x3E;
+                      &#x3C;h3 class=&#x22;heading3&#x22;&#x3E;Section 2&#x3C;/h3&#x3E;
+                      &#x3C;p&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.&#x3C;/p&#x3E;
+                    &#x3C;/mj-text&#x3E;
+                  &#x3C;/mj-column&#x3E;
+                  &#x3C;mj-column&#x3E;
+                    &#x3C;mj-image src=&#x22;https://customer.coliquio.de/ccc/images/ccc_app_syndication.svg&#x22; /&#x3E;
+                    &#x3C;mj-text&#x3E;
+                      &#x3C;h3 class=&#x22;heading3&#x22;&#x3E;Section 3&#x3C;/h3&#x3E;
+                      &#x3C;p&#x3E;Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that&#x27;s the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.&#x3C;/p&#x3E;
+                    &#x3C;/mj-text&#x3E;
+                  &#x3C;/mj-column&#x3E;
+                &#x3C;/mj-section&#x3E;
+
+              &#x3C;/mj-container&#x3E;
+            &#x3C;/mj-body&#x3E;
+          &#x3C;/mjml&#x3E;
+        </code>
+      </pre>
+      </div>
+      <div class="col col--one-third">
+        <img data-src="assets/final-view.png"/>
+      </div>
+    </section>
+
+    <section>
+      <h2>Zusammenfassung</h2>
+      <section>
+        <h3>HTML Mails sind die Hölle, weil ...</h3>
+        <ul>
+          <li>... es keine Standards gibt</li>
+          <li class="fragment" data-fragment-index="1">... man Tabellen-Layout einsetzen muss</li>
+          <li class="fragment" data-fragment-index="2">... man mit conditional-Tags verschiedene Clients bedienen muss</li>
+          <li class="fragment" data-fragment-index="3">... die Maintenance sehr aufwändig ist</li>
+        </ul>
+      </section>
+      <section>
+        <h3>MJML ist hilfreich, weil ...</h3>
+        <ul>
+          <li>... es keine Standards gibt</li>
+          <li class="fragment" data-fragment-index="1">... </li>
+          <li class="fragment" data-fragment-index="2">...</li>
+          <li class="fragment" data-fragment-index="3">...</li>
+        </ul>
+      </section>
+    </section>
+
+    <section>
+      <h2>Eure Fragen?</h2>
+    </section>
+
+    <section>
+      <h2>Danke für Eure Aufmerksamkeit</h2>
+      <img data-src="assets/party-hard.gif" style="width: 20vw"/>
+      <p>Let's party</p>
+    </section>
+  </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
+
+    width: "100%",
+    height: "100%",
+    margin: 0,
+    minScale: 1,
+    maxScale: 1,
+
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [
+      {src: 'plugin/markdown/marked.js'},
+      {src: 'plugin/markdown/markdown.js'},
+      {src: 'plugin/notes/notes.js', async: true},
+      {
+        src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+        hljs.initHighlightingOnLoad();
+      }
+      }
+    ]
+  });
+</script>
+</body>
+</html>

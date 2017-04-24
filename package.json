@@ -1,0 +1,14 @@
+{
+  "name": "mjml-talk",
+  "version": "1.0.0",
+  "description": "Meetup talk about html mails and MJML",
+  "scripts": {
+    "start": "ws -p 3000 -d presentation/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "René Bach <rene.bach@coliquio.de>",
+  "license": "ISC",
+  "dependencies": {
+    "local-web-server": "^1.2.7"
+  }
+}

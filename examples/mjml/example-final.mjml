@@ -1,0 +1,49 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+      <mj-section padding="0"/>
+      <mj-image width="100px" align="center"/>
+    </mj-attributes>
+    <mj-style inline="inline">
+      .heading3 {
+        color:#2581c4;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body>
+    <mj-container>
+
+      <mj-section>
+        <mj-column>
+          <mj-image src="https://customer.coliquio.de/assets/coliquio/dist/images/logo_brand_name.svg"/>
+          <mj-divider border-color="#2581c4"></mj-divider>
+        </mj-column>
+      </mj-section>
+
+      <mj-section>
+        <mj-column>
+          <mj-image src="https://customer.coliquio.de/ccc/images/ccc_app_impact.svg"/>
+          <mj-text>
+            <h3 class="heading3">Section 1</h3>
+            <p>Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that's the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.</p>
+          </mj-text>
+        </mj-column>
+        <mj-column>
+          <mj-image src="https://customer.coliquio.de/ccc/images/ccc_app_insight.svg"/>
+          <mj-text>
+            <h3 class="heading3">Section 2</h3>
+            <p>Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that's the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.</p>
+          </mj-text>
+        </mj-column>
+        <mj-column>
+          <mj-image src="https://customer.coliquio.de/ccc/images/ccc_app_syndication.svg" />
+          <mj-text>
+            <h3 class="heading3">Section 3</h3>
+            <p>Sheezy i saw beyonces tizzles and my pizzle went crizzle dolor go to hizzle dang, consectetuer adipiscing its fo rizzle. Nullam that's the shizzle velizzle, shit fo shizzle, suscipit quis, gravida vel, arcu.</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+
+    </mj-container>
+  </mj-body>
+</mjml>
