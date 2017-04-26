@@ -65,9 +65,29 @@
       <h2>coliquio</h2>
       <section>
         <h3>Das ist coliquio</h3>
+        <div style="width: 80%; margin: 0 auto;">
+          <ul>
+            <li class="fragment" data-fragment-index="0">coliquio ist das führende deutschsprachige online Ärztenetzwerk
+              mit über 170.000 Mitgliedern.
+            </li>
+            <li class="fragment" data-fragment-index="1">Ärzte tauschen sich bei coliquio zu Patientenfällen, Diagnosen
+              und Therapieoptionen aus.
+            </li>
+            <li class="fragment" data-fragment-index="2">Unternehmen nutzen coliquio, um mit einem Großteil der Ärzte in
+              den direkten Dialog treten.
+            </li>
+            <li class="fragment" data-fragment-index="3">Die coliquio GmbH wurde 2007 aus einem Projekt der Hochschule Konstanz gegründet</li>
+          </ul>
+        </div>
       </section>
       <section>
         <h3>Email Marketing</h3>
+        <div style="width: 80%; margin: 0 auto;">
+          <ul>
+            <li class="fragment" data-fragment-index="0">Bulkmails</li>
+            <li class="fragment" data-fragment-index="1">Transactional Mails</li>
+          </ul>
+        </div>
       </section>
       <section>
         <h3>Email Tools</h3>
@@ -75,10 +95,10 @@
           <img data-src="assets/mailchimp-logo.png" style="height: 200px"/>
         </div>
         <div class="col col--one-third">
-          <img data-src="assets/mandrill-logo.png" style="height: 200px" />
+          <img data-src="assets/mandrill-logo.png" style="height: 200px"/>
         </div>
         <div class="col col--one-third">
-          <img data-src="assets/litmus-logo.jpg" />
+          <img data-src="assets/litmus-logo.jpg"/>
         </div>
       </section>
     </section>
@@ -208,13 +228,13 @@
       <section>
         <h3>Wie sieht es mit Mail-Clients aus?</h3>
 
-        <div class="col col--one-third fragment" data-fragment-index="1" >
+        <div class="col col--one-third fragment" data-fragment-index="1">
           <img src="assets/chromegmailnew-vertical-allowed-1366.png" style="height:50vh"/>
         </div>
-        <div class="col col--one-third fragment" data-fragment-index="2" >
+        <div class="col col--one-third fragment" data-fragment-index="2">
           <img src="assets/androidgmailapp-vertical-allowed-1366.png" style="height:50vh"/>
         </div>
-        <div class="col col--one-third fragment" data-fragment-index="3" >
+        <div class="col col--one-third fragment" data-fragment-index="3">
           <img src="assets/chromeoutlookcom-vertical-allowed-1366.png" style="height:50vh"/>
         </div>
       </section>
@@ -225,6 +245,7 @@
           <li>Breakpoint greift nicht</li>
           <li class="fragment" data-fragment-index="1">Bilder sind nicht zentriert</li>
           <li class="fragment" data-fragment-index="3">SVG werden nicht immer unterstützt</li>
+          <li class="fragment" data-fragment-index="4">alles sch*****!</li>
         </ul>
       </section>
 
@@ -512,8 +533,8 @@
       <h2>Warum Table Design?</h2>
       <ul>
         <li class="fragment" data-fragment-index="1">Es gibt über 70 verschiedene Apps & Mail Clients<br/>
-        <img src="assets/litmus-market-share-03-2017.png" style="height: 50vh"/></li>
-        <li class="fragment" data-fragment-index="2">Es gibt keine Standards für diese Clients</li>
+          <img src="assets/litmus-market-share-03-2017.png" style="height: 50vh"/></li>
+        <li class="fragment" data-fragment-index="2">Es gibt keinerlei Standards für diese Clients</li>
       </ul>
     </section>
 
@@ -917,9 +938,97 @@
 
       <section>
         <h3>Custom Elements</h3>
+        <p>Tutorial: <br/>
+          <a
+            href="https://medium.com/mjml-making-responsive-email-easy/tutorial-creating-your-own-mjml-component-d3a236ab7093">tutorial-creating-your-own-mjml-component</a>
+        </p>
         <p>Boilerplate: <br/>
           <a href="https://github.com/mjmlio/mjml-component-boilerplate">https://github.com/mjmlio/mjml-component-boilerplate</a>
         </p>
+      </section>
+
+      <section>
+        <pre>
+          <code data-trim data-noescape>
+            import { MJMLElement } from &#x27;mjml-core&#x27;
+            import React, { Component } from &#x27;react&#x27;
+            import reverse from &#x27;lodash/reverse&#x27;
+            import Section from &#x27;mjml-section&#x27;
+            import Column from &#x27;mjml-column&#x27;
+            import Image from &#x27;mjml-image&#x27;
+            import Text from &#x27;mjml-text&#x27;
+
+            // Tag Name
+            const tagName = &#x27;mj-column-image-text&#x27;
+            // List of parent tags
+            const parentTag = [&#x27;mj-container&#x27;]
+            // If false, the component can contain MJML; if true, it can contain only plain HTML
+            const endingTag = false
+            const defaultMJMLDefinition = {
+              content: &#x27;&#x27;,
+              attributes: {
+                &#x27;direction&#x27;: &#x27;left&#x27;,
+                &#x27;color&#x27;: &#x27;blue&#x27;,
+                &#x27;font-size&#x27;: &#x27;10px&#x27;,
+                &#x27;image-padding&#x27;: 0,
+                &#x27;image-src&#x27;: null,
+                &#x27;image-width&#x27;: null,
+                &#x27;column-width&#x27;: &#x27;50%&#x27;,
+                &#x27;text&#x27;: &#x27;&#x27;,
+              },
+            }
+
+            @MJMLElement
+            class ColumnImageText extends Component {
+
+              renderImage () {
+                const { mjAttribute } = this.props
+
+                return (
+                  &#x3C;Column key=&#x22;image&#x22; width={mjAttribute(&#x27;column-width&#x27;)}&#x3E;
+                    &#x3C;Image
+                      padding={mjAttribute(&#x27;image-padding&#x27;)}
+                      width={mjAttribute(&#x27;image-width&#x27;)}
+                      src={mjAttribute(&#x27;image-src&#x27;)}
+                    /&#x3E;
+                  &#x3C;/Column&#x3E;
+                )
+              }
+
+              renderContent () {
+                const { mjAttribute } = this.props
+
+                return (
+                  &#x3C;Column key=&#x22;content&#x22; width={mjAttribute(&#x27;column-width&#x27;)}&#x3E;
+                    &#x3C;Text font-size={mjAttribute(&#x27;font-size&#x27;)} color={mjAttribute(&#x27;color&#x27;)}&#x3E;
+                      { mjAttribute(&#x27;text&#x27;) }
+                    &#x3C;/Text&#x3E;
+                  &#x3C;/Column&#x3E;
+                )
+              }
+
+              render () {
+                const { mjAttribute } = this.props
+                const columns = [this.renderImage(), this.renderContent()]
+
+                return (
+                  &#x3C;Section {...this.props}&#x3E;
+                    { mjAttribute(&#x27;direction&#x27;) == &#x27;right&#x27; ? reverse(columns) : columns }
+                  &#x3C;/Section&#x3E;
+                )
+
+              }
+
+            }
+
+            ColumnImageText.tagName = tagName
+            ColumnImageText.parentTag = parentTag
+            ColumnImageText.endingTag = endingTag
+            ColumnImageText.defaultMJMLDefinition = defaultMJMLDefinition
+
+            export default ColumnImageText
+          </code>
+        </pre>
       </section>
 
       <section>
@@ -1064,7 +1173,8 @@
         <ul>
           <li>... es keine Standards gibt</li>
           <li class="fragment" data-fragment-index="1">... man Tabellen-Layout einsetzen muss</li>
-          <li class="fragment" data-fragment-index="2">... man mit conditional-Tags verschiedene Clients bedienen muss</li>
+          <li class="fragment" data-fragment-index="2">... man mit conditional-Tags verschiedene Clients bedienen muss
+          </li>
           <li class="fragment" data-fragment-index="3">... die Maintenance sehr aufwändig ist</li>
         </ul>
       </section>
@@ -1086,7 +1196,9 @@
       <h2>Danke für Eure Aufmerksamkeit</h2>
       <img data-src="assets/party-hard.gif" style="width: 20vw"/>
       <p>Let's party</p>
-      <small><a href="https://github.com/aalibaabaa/mjml-presentation">https://github.com/aalibaabaa/mjml-presentation</a></small>
+      <small><a
+        href="https://github.com/aalibaabaa/mjml-presentation">https://github.com/aalibaabaa/mjml-presentation</a>
+      </small>
     </section>
   </div>
 </div>
