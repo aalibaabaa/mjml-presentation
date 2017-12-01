@@ -41,16 +41,37 @@
       width: 66.66666666%;
       float: left;
     }
+
+    .start {
+      height: 100vh;
+      position: relative;
+    }
+    .start:after {
+      content: "";
+      background: url(assets/col-empl.jpeg);
+      opacity: 0.1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .highlight-text {
+      color: #2581c4 !important;  /* booooh :-( */
+      text-shadow: 1px 2px 2px #ffffff !important; /* booooh :-( */
+    }
   </style>
 </head>
 <body>
 <div class="reveal">
   <div class="slides">
-    <section>
-      <h2>Escaping the "responsive HTML email hell"</h2>
-      <h3>An introduction to MJML</h3>
+    <section class="highlight-text start">
+      <h2 class="highlight-text"  style="margin-top: 10vh;">Escaping the "responsive HTML email hell"</h2>
+      <h3 class="highlight-text">An introduction to MJML</h3>
       <p>&nbsp;</p>
-      <p>Munich - Monday, December 4, 2017</p>
+      <p style="margin-top: 20vh;">Munich - Monday, December 4, 2017</p>
       <p><small>René Bach @ coliquio</small></p>
     </section>
     <section>
