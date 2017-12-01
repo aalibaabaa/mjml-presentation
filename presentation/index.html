@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>SeeIT Meetup</title>
+  <title>coliquio Meetup</title>
 
   <link rel="stylesheet" href="css/reveal.css">
   <link rel="stylesheet" href="css/theme/solarized.css">
@@ -47,70 +47,76 @@
 <div class="reveal">
   <div class="slides">
     <section>
-      <h2>Wege aus der<br/>"Responsive HTML Mail Hölle"</h2>
-      <h3>Eine Einführung in MJML</h3>
+      <h2>Escaping the "responsive HTML email hell"</h2>
+      <h3>An introduction to MJML</h3>
       <p>&nbsp;</p>
-      <p>rene.bach@coliquio.de</p>
+      <p>Munich - Monday, December 4, 2017</p>
+      <p><small>René Bach @ coliquio</small></p>
     </section>
     <section>
       <h2>Agenda</h2>
       <ol>
         <li>coliquio</li>
-        <li>HTML Emails</li>
+        <li>HTML e-mails</li>
         <li>MJML</li>
-        <li>Zusammenfassung</li>
+        <li>conclusion</li>
       </ol>
     </section>
 
     <section>
       <h2>coliquio</h2>
       <section>
-        <h3>Das ist coliquio</h3>
-        <div style="width: 80%; margin: 0 auto;">
-          <ul>
-            <li class="fragment" data-fragment-index="0">coliquio ist das führende deutschsprachige online Ärztenetzwerk
-              mit über 170.000 Mitgliedern.
-            </li>
-            <li class="fragment" data-fragment-index="1">Ärzte tauschen sich bei coliquio zu Patientenfällen, Diagnosen
-              und Therapieoptionen aus.
-            </li>
-            <li class="fragment" data-fragment-index="2">Unternehmen nutzen coliquio, um mit einem Großteil der Ärzte in
-              den direkten Dialog treten.
-            </li>
-            <li class="fragment" data-fragment-index="3">Die coliquio GmbH wurde 2007 aus einem Projekt der Hochschule Konstanz gegründet</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h3>Die IT</h3>
+        <h3>What is coliquio?</h3>
         <div style="width: 80%; margin: 0 auto;">
           <ul>
             <li class="fragment" data-fragment-index="0">
-              3 Dev Teams in KN
+              coliquio was established in 2007.
+            </li>
+            <li class="fragment" data-fragment-index="0">
+              ~ 120 employees in Konstanz, Munich and Hamburg.
             </li>
             <li class="fragment" data-fragment-index="1">
-              1 Operating Team
+              leading doctor network in the German speaking countries, with more than 175.000 members.
             </li>
             <li class="fragment" data-fragment-index="2">
-              Neue Standorte in München und Hamburg
+              coliquio enables the exchange between all the members.
             </li>
             <li class="fragment" data-fragment-index="3">
-              Wir sind ein agiles Unternehmen (nicht nur die IT!)
+              coliquio enables the direct dialog between doctors and pharma companies.
             </li>
           </ul>
         </div>
       </section>
 
       <section>
-        <h3>Email Marketing</h3>
+        <h3>The coliquio IT</h3>
         <div style="width: 80%; margin: 0 auto;">
           <ul>
             <li class="fragment" data-fragment-index="0">
-              Redaktionelle (Bulk-) Mails<br />(Daily News, Weekly News etc.)
+              3 development teams in Konstanz and 1 in Munich
             </li>
             <li class="fragment" data-fragment-index="1">
-              Transactional Mails<br />(Kommentarbenachrichtigungen, Registrierungsmails etc.)
+              1 operating team
+            </li>
+            <li class="fragment" data-fragment-index="3">
+              We are an agile company. Not only the IT department but all!
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h3>Email marketing</h3>
+        <div style="width: 80%; margin: 0 auto;">
+          <ul>
+            <li class="fragment" data-fragment-index="0">
+              Editorial content mails<br />(daily news, weekly news etc.)
+            </li>
+            <li class="fragment" data-fragment-index="1">
+              Transactional mails<br />(comments notification, registration mails etc.)
+            </li>
+            <li class="fragment" data-fragment-index="2">
+              ~ 200 k mails per day
             </li>
           </ul>
         </div>
@@ -249,11 +255,11 @@
       </section>
 
       <section>
-        <h3>Läuft in allen relevanten Browsern</h3>
+        <h3>works in all relevant browsers</h3>
       </section>
 
       <section>
-        <h3>Wie sieht es mit Mail-Clients aus?</h3>
+        <h3>How does it look like in email clients?</h3>
 
         <div class="col col--one-third fragment" data-fragment-index="1">
           <img src="assets/chromegmailnew-vertical-allowed-1366.png" style="height:50vh"/>
@@ -269,16 +275,16 @@
       <section>
         <h3>Oh, oh,...</h3>
         <ul>
-          <li>Breakpoint greift nicht</li>
-          <li class="fragment" data-fragment-index="1">Bilder sind nicht zentriert</li>
-          <li class="fragment" data-fragment-index="3">SVG werden nicht immer unterstützt</li>
-          <li class="fragment" data-fragment-index="4">alles sch*****!</li>
+          <li>Breakpoint does not work</li>
+          <li class="fragment" data-fragment-index="1">Images are not centered</li>
+          <li class="fragment" data-fragment-index="3">SVG is partially supported</li>
+          <li class="fragment" data-fragment-index="4">Everything is a mess!</li>
         </ul>
       </section>
 
       <section>
         <h3>Back to the 90s</h3>
-        <p>Wir brauchen Tabellen</p>
+        <p>We need HTML tables</p>
         <img data-src="assets/are-u-serious.jpeg" />
       </section>
 
@@ -292,7 +298,8 @@
         <div class="col col--two-third">
         <pre>
           <code data-trim data-noescape>
-            &#x3C;html xmlns=&#x22;http://www.w3.org/1999/xhtml&#x22; xmlns:v=&#x22;urn:schemas-microsoft-com:vml&#x22; xmlns:o=&#x22;urn:schemas-microsoft-com:office:office&#x22;&#x3E;&#x3C;head&#x3E;
+            &#x3C;html xmlns=&#x22;http://www.w3.org/1999/xhtml&#x22; xmlns:v=&#x22;urn:schemas-microsoft-com:vml&#x22; xmlns:o=&#x22;urn:schemas-microsoft-com:office:office&#x22;&#x3E;
+            &#x3C;head&#x3E;
               &#x3C;title&#x3E;&#x3C;/title&#x3E;
               &#x3C;!--[if !mso]&#x3E;&#x3C;!-- --&#x3E;
               &#x3C;meta http-equiv=&#x22;X-UA-Compatible&#x22; content=&#x22;IE=edge&#x22;&#x3E;
@@ -553,10 +560,10 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>Table Design</li>
-            <li>Viele Conditional-Tags</li>
-            <li>~300 Zeilen Code !!!</li>
-            <li>Maintenance = Hölle</li>
+            <li>table based design</li>
+            <li>a lot of conditional tags</li>
+            <li>~300 lines of code</li>
+            <li>maintenance = hell</li>
           </ul>
         </div>
       </section>
@@ -564,11 +571,12 @@
     </section>
 
     <section>
-      <h2>Warum Table Design?</h2>
+      <h2>Why table design?</h2>
       <ul>
-        <li class="fragment" data-fragment-index="1">Es gibt über 70 verschiedene Apps & Mail Clients<br/>
+        <li class="fragment" data-fragment-index="1">
+          there are more than 70 different apps and email clients<br/>
           <img src="assets/litmus-market-share-03-2017.png" style="height: 50vh"/></li>
-        <li class="fragment" data-fragment-index="2">Es gibt keinerlei Standards für diese Clients</li>
+        <li class="fragment" data-fragment-index="2">there are no standards</li>
       </ul>
     </section>
 
@@ -586,28 +594,29 @@
     </section>
 
     <section>
-      <h2>Ein Lösungsansatz</h2>
-      <h3 class="fragment" data-fragment-index="0">Give it to your Werkstudent</h3>
+      <h2>One approach</h2>
+      <h3 class="fragment" data-fragment-index="0">Give it to your working student</h3>
+      <img src="assets/evil.jpg" alt="" class="fragment" data-fragment-index="0"/>
     </section>
 
     <section>
-      <h2>Besser</h2>
-      <h3 class="fragment" data-fragment-index="0">Lass es eine Library für Dich erledigen</h3>
+      <h2>Better approach</h2>
+      <h3 class="fragment" data-fragment-index="0">Use a framework or library, that handles it for you.</h3>
     </section>
 
     <section>
       <h2>Mail Jet Markup Language - MJML</h2>
       <section>
-        <h3>Idee</h3>
+        <h3>The idea</h3>
         <ul>
-          <li class="fragment" data-fragment-index="1">Entwickelt vom MailJet</li>
-          <li class="fragment" data-fragment-index="2">Emails schnell und einfach erstellen</li>
-          <li class="fragment" data-fragment-index="3">Responsive Mails vereinfachen</li>
-          <li class="fragment" data-fragment-index="4">Komponentenbasiert</li>
+          <li class="fragment" data-fragment-index="1">Developed and maintained by MailJet</li>
+          <li class="fragment" data-fragment-index="2">Create email templates quick and easy</li>
+          <li class="fragment" data-fragment-index="3">Make building responsive emails easy</li>
+          <li class="fragment" data-fragment-index="4">Do it component based</li>
         </ul>
       </section>
       <section>
-        <h3>MJML-Gerüst</h3>
+        <h3>MJML structure</h3>
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
@@ -625,8 +634,8 @@
         <div class="col col--one-third">
           <ul>
             <li>mjml</li>
-            <li>head (globale Settings)</li>
-            <li>body (Darstellungsebene)</li>
+            <li>head (global settings)</li>
+            <li>body (everything you see)</li>
           </ul>
         </div>
       </section>
@@ -647,7 +656,7 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>Startpunkt der Email</li>
+            <li>starting point of the template</li>
             <li>width (default: 600px)</li>
             <li>background-color</li>
           </ul>
@@ -673,9 +682,8 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>Section = Zeile der Email</li>
-            <li>Sections nicht verschachteln</li>
-            <li>Inhalt von columns umschlossen</li>
+            <li>section = row</li>
+            <li>sections can't be encapsulated</li>
           </ul>
         </div>
       </section>
@@ -704,9 +712,9 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>Column = Spalte in Zeile</li>
-            <li>Columns nicht verschachteln</li>
-            <li>Keine Sections in Columns</li>
+            <li>auto width (section width devided by no. of columns)</li>
+            <li>columns can't be encapsulated</li>
+            <li>no sections in column</li>
           </ul>
         </div>
       </section>
@@ -722,8 +730,8 @@
                       &#x3C;mjml-column&#x3E;
 
                         &#x3C;mjml-text padding="24px 16px"&#x3E;
-                          &#x3C;h1 style="color:#ff9900;"&#x3E;Email Titel&#x3C;/h1&#x3E;
-                          &#x3C;p&#x3E;Schön, dass Sie diese Mail lesen...&#x3C;/p&#x3E;
+                          &#x3C;h1 style="color:#ff9900;"&#x3E;title&#x3C;/h1&#x3E;
+                          &#x3C;p&#x3E;Thank you for reading this email...&#x3C;/p&#x3E;
                         &#x3C;/mjml-text&#x3E;
 
                       &#x3C;/mjml-column&#x3E;
@@ -735,7 +743,7 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>MJML-Text kann jegliche Art von HTML Tags enthalten</li>
+            <li>MJML-text can contain any kind of HTML tags</li>
           </ul>
         </div>
       </section>
@@ -765,8 +773,8 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>Responsive Image</li>
-            <li>Width per default = 100%</li>
+            <li>responsive image</li>
+            <li>default width = 100%</li>
           </ul>
         </div>
       </section>
@@ -849,7 +857,7 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>Globale Settings</li>
+            <li>global settings</li>
           </ul>
         </div>
       </section>
@@ -889,9 +897,9 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>all => Alle Elemente</li>
-            <li>{tag} => alle {tag}-Elemente</li>
-            <li>class => Klassen für mjml-Elemente</li>
+            <li>all => all elements</li>
+            <li>{tag} => all {tag}-elements</li>
+            <li>class => CSS like classes for mjml-elements</li>
           </ul>
         </div>
       </section>
@@ -938,8 +946,8 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>CSS Styles werden im HTML-Dokument eingefügt</li>
-            <li>inline="inline" => Zuätzlich als Inline-Style</li>
+            <li>CSS syles will be included in html document/li>
+            <li>inline="inline" => also set inline styles</li>
           </ul>
         </div>
       </section>
@@ -974,7 +982,7 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>Importiert Fonts ins Dokument</li>
+            <li>importiert fonts into document</li>
           </ul>
         </div>
       </section>
@@ -1076,14 +1084,14 @@
       </section>
 
       <section>
-        <h3>Validieren</h3>
+        <h3>Validation:</h3>
         <div class="col col--half">
           <pre>
             <code data-trim data-noescape>$> mjml --validate template.mjml</code>
           </pre>
         </div>
         <div class="col col--half">
-          Über command line testbar
+          testable by command line
         </div>
       </section>
 
@@ -1141,7 +1149,7 @@
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>Vereinfachte dynamische Erstellung von Mails</li>
+            <li>Easy way to dnamically build email templates</li>
           </ul>
         </div>
       </section>
@@ -1149,7 +1157,7 @@
     </section>
 
     <section>
-      <h2>Zurück zu unserem Beispiel</h2>
+      <h2>Back to our example:</h2>
       <div class="col col--two-third">
       <pre>
         <code data-trim data-noescape>
@@ -1211,37 +1219,36 @@
     </section>
 
     <section>
-      <h2>Zusammenfassung</h2>
+      <h2>Conclusion</h2>
       <section>
-        <h3>HTML Mails sind die Hölle, weil ...</h3>
+        <h3>HTML emails fee like hell because...</h3>
         <ul>
-          <li>... es keine Standards gibt</li>
-          <li class="fragment" data-fragment-index="1">... man Tabellen-Layout einsetzen muss</li>
-          <li class="fragment" data-fragment-index="2">... man mit conditional-Tags verschiedene Clients bedienen muss
-          </li>
-          <li class="fragment" data-fragment-index="3">... die Maintenance sehr aufwändig ist</li>
+          <li>... missing standards for email clients</li>
+          <li class="fragment" data-fragment-index="1">... table-based layouts</li>
+          <li class="fragment" data-fragment-index="2">... consitional tags</li>
+          <li class="fragment" data-fragment-index="3">... maintainability</li>
         </ul>
       </section>
       <section>
-        <h3>MJML ist hilfreich, weil ...</h3>
+        <h3>MJML helps, because ...</h3>
         <ul>
-          <li>... es schnell und einfach ist</li>
-          <li class="fragment" data-fragment-index="1">... es komponentenbasiert ist</li>
-          <li class="fragment" data-fragment-index="2">... es gut testbar ist</li>
+          <li>... it is quick and easy</li>
+          <li class="fragment" data-fragment-index="1">... it is component based</li>
+          <li class="fragment" data-fragment-index="2">... it is testable</li>
         </ul>
       </section>
     </section>
 
     <section>
-      <h2>Eure Fragen?</h2>
+      <h2>Your questions?</h2>
     </section>
 
     <section>
-      <h2>Danke für Eure Aufmerksamkeit</h2>
+      <h2>Thank you for your attention</h2>
       <img data-src="assets/party-hard.gif" style="width: 20vw"/>
-      <p>Let's party</p>
-      <small><a
-        href="https://github.com/aalibaabaa/mjml-presentation">https://github.com/aalibaabaa/mjml-presentation</a>
+      <p>Let's have some drinks and pizza!</p>
+      <small>
+        <a href="https://github.com/aalibaabaa/mjml-presentation">https://github.com/aalibaabaa/mjml-presentation</a>
       </small>
     </section>
   </div>
