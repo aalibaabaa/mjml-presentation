@@ -62,6 +62,12 @@
       color: #2581c4 !important;  /* booooh :-( */
       text-shadow: 1px 2px 2px #ffffff !important; /* booooh :-( */
     }
+
+    .start-logo {
+      text-align: center;
+      height: 60px;
+      border: none !important;
+    }
   </style>
 </head>
 <body>
@@ -73,6 +79,7 @@
       <p>&nbsp;</p>
       <p style="margin-top: 20vh;">Munich - Monday, December 4, 2017</p>
       <p><small>René Bach @ coliquio</small></p>
+      <p><img src="assets/coliquio-logo.jpg" alt="" class="start-logo"/></p>
     </section>
     <section>
       <h2>Agenda</h2>
@@ -80,7 +87,7 @@
         <li>coliquio</li>
         <li>HTML e-mails</li>
         <li>MJML</li>
-        <li>conclusion</li>
+        <li>Summary</li>
       </ol>
     </section>
 
@@ -97,13 +104,13 @@
               ~ 120 employees in Konstanz, Munich and Hamburg.
             </li>
             <li class="fragment" data-fragment-index="1">
-              leading doctor network in the German speaking countries, with more than 175.000 members.
+              leading physicians network in the German speaking countries, with more than 175.000 members.
             </li>
             <li class="fragment" data-fragment-index="2">
               coliquio enables the exchange between all the members.
             </li>
             <li class="fragment" data-fragment-index="3">
-              coliquio enables the direct dialog between doctors and pharma companies.
+              coliquio enables the direct dialog between physicians and pharma companies.
             </li>
           </ul>
         </div>
@@ -116,11 +123,11 @@
             <li class="fragment" data-fragment-index="0">
               3 development teams in Konstanz and 1 in Munich
             </li>
-            <li class="fragment" data-fragment-index="1">
+            <li class="fragment" data-fragment-index="0">
               1 operating team
             </li>
-            <li class="fragment" data-fragment-index="3">
-              We are an agile company. Not only the IT department but all!
+            <li class="fragment" data-fragment-index="0">
+              We are an agile company. Not only the IT department!
             </li>
           </ul>
         </div>
@@ -642,12 +649,12 @@
           <pre>
             <code data-trim data-noescape>
               &#x3C;mjml&#x3E;
-                &#x3C;mjml-head&#x3E;
+                &#x3C;mj-head&#x3E;
                   ...
-                &#x3C;/mjml-head&#x3E;
-                &#x3C;mjml-body&#x3E;
+                &#x3C;/mj-head&#x3E;
+                &#x3C;mj-body&#x3E;
                   ...
-                &#x3C;/mjml-body&#x3E;
+                &#x3C;/mj-body&#x3E;
               &#x3C;/mjml&#x3E;
             </code>
           </pre>
@@ -667,11 +674,11 @@
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container background-color="#fff"&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container background-color="#fff"&#x3E;
                     &#x3C;!-- Your email goes here --&#x3E;
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
             </code>
           </pre>
         </div>
@@ -689,15 +696,15 @@
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container background-color="#fff"&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container background-color="#fff"&#x3E;
 
-                    &#x3C;mjml-section&#x3E;
+                    &#x3C;mj-section&#x3E;
                       &#x3C;!-- Your email goes here --&#x3E;
-                    &#x3C;/mjml-section&#x3E;
+                    &#x3C;/mj-section&#x3E;
 
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
             </code>
           </pre>
         </div>
@@ -714,20 +721,20 @@
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container&#x3E;
-                    &#x3C;mjml-section&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container&#x3E;
+                    &#x3C;mj-section&#x3E;
 
-                      &#x3C;mjml-column&#x3E;
-                        &#x3C;!-- Spalte 1 --&#x3E;
-                      &#x3C;/mjml-column&#x3E;
-                      &#x3C;mjml-column&#x3E;
-                        &#x3C;!-- Spalte 2 --&#x3E;
-                      &#x3C;/mjml-column&#x3E;
+                      &#x3C;mj-column&#x3E;
+                        &#x3C;!-- column 1 --&#x3E;
+                      &#x3C;/mj-column&#x3E;
+                      &#x3C;mj-column&#x3E;
+                        &#x3C;!-- column 2 --&#x3E;
+                      &#x3C;/mj-column&#x3E;
 
-                    &#x3C;/mjml-section&#x3E;
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                    &#x3C;/mj-section&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
             </code>
           </pre>
         </div>
@@ -745,26 +752,26 @@
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container&#x3E;
-                    &#x3C;mjml-section&#x3E;
-                      &#x3C;mjml-column&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container&#x3E;
+                    &#x3C;mj-section&#x3E;
+                      &#x3C;mj-column&#x3E;
 
-                        &#x3C;mjml-text padding="24px 16px"&#x3E;
+                        &#x3C;mj-text padding="24px 16px"&#x3E;
                           &#x3C;h1 style="color:#ff9900;"&#x3E;title&#x3C;/h1&#x3E;
                           &#x3C;p&#x3E;Thank you for reading this email...&#x3C;/p&#x3E;
-                        &#x3C;/mjml-text&#x3E;
+                        &#x3C;/mj-text&#x3E;
 
-                      &#x3C;/mjml-column&#x3E;
-                    &#x3C;/mjml-section&#x3E;
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                      &#x3C;/mj-column&#x3E;
+                    &#x3C;/mj-section&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
             </code>
           </pre>
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>MJML-text can contain any kind of HTML tags</li>
+            <li>mj-text can contain any kind of HTML tags</li>
           </ul>
         </div>
       </section>
@@ -774,21 +781,21 @@
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container&#x3E;
-                    &#x3C;mjml-section&#x3E;
-                      &#x3C;mjml-column&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container&#x3E;
+                    &#x3C;mj-section&#x3E;
+                      &#x3C;mj-column&#x3E;
 
-                        &#x3C;mjml-image
+                        &#x3C;mj-image
                           src="https://coliquio.de/logo.png"
                           width="100px"
                           align="center"
                           alt="Logo" /&#x3E;
 
-                      &#x3C;/mjml-column&#x3E;
-                    &#x3C;/mjml-section&#x3E;
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                      &#x3C;/mj-column&#x3E;
+                    &#x3C;/mj-section&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
             </code>
           </pre>
         </div>
@@ -805,24 +812,24 @@
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container&#x3E;
-                    &#x3C;mjml-section&#x3E;
-                      &#x3C;mjml-column&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container&#x3E;
+                    &#x3C;mj-section&#x3E;
+                      &#x3C;mj-column&#x3E;
 
-                        &#x3C;mjml-button
+                        &#x3C;mj-button
                           font-family="Helvetica"
                           background-color="#f45e43"
                           color="#ffffff"
                           border-radius="8px"
                           href="https://coliquio.de/button-destination"&#x3E;
                           Click Me!
-                        &#x3C;/mjml-button&#x3E;
+                        &#x3C;/mj-button&#x3E;
 
-                      &#x3C;/mjml-column&#x3E;
-                    &#x3C;/mjml-section&#x3E;
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                      &#x3C;/mj-column&#x3E;
+                    &#x3C;/mj-section&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
             </code>
           </pre>
         </div>
@@ -838,7 +845,7 @@
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
-              &#x3C;mjml-column&#x3E;
+              &#x3C;mj-column&#x3E;
 
                   &#x3C;mj-social
                     mode="vertical" display="google"
@@ -848,15 +855,15 @@
 
                   &#x3C;mj-location address="37 bis, rue du Sentier 75002 Paris" /&#x3E;
 
-              &#x3C;/mjml-column&#x3E;
+              &#x3C;/mj-column&#x3E;
             </code>
           </pre>
         </div>
         <div class="col col--one-third">
           <ul>
-            <li><img data-src="assets/mjml-social.png" height="90px"></li>
+            <li><img data-src="assets/mj-social.png" height="90px"></li>
             <li>Divider</li>
-            <li><img src="assets/mjml-location.png" height="90px"></li>
+            <li><img src="assets/mj-location.png" height="90px"></li>
             <li>Accordion</li>
             <li>Carousel</li>
             <li>Hero</li>
@@ -870,9 +877,9 @@
         <div class="col col--two-third">
           <pre>
             <code data-trim data-noescape>
-              &#x3C;mjml-head&#x3E;
+              &#x3C;mj-head&#x3E;
                 ...
-              &#x3C;/mjml-head&#x3E;
+              &#x3C;/mj-head&#x3E;
             </code>
           </pre>
         </div>
@@ -889,7 +896,7 @@
           <pre>
             <code data-trim data-noescape>
               &#x3C;mjml&#x3E;
-                &#x3C;mjml-head&#x3E;
+                &#x3C;mj-head&#x3E;
 
                   &#x3C;mj-attributes&#x3E;
                      &#x3C;mj-all font-family="Arial"/&#x3E;
@@ -898,20 +905,20 @@
                      &#x3C;mj-class name="big" font-size="20px"/&#x3E;
                   &#x3C;/mj-attributes&#x3E;
 
-                &#x3C;/mjml-head&#x3E;
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container&#x3E;
-                    &#x3C;mjml-section&#x3E;
-                      &#x3C;mjml-column&#x3E;
+                &#x3C;/mj-head&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container&#x3E;
+                    &#x3C;mj-section&#x3E;
+                      &#x3C;mj-column&#x3E;
 
-                        &#x3C;mjml-text class="blue big"&#x3E;
+                        &#x3C;mj-text class="blue big"&#x3E;
                           Hello World
-                        &#x3C;/mjml-text&#x3E;
+                        &#x3C;/mj-text&#x3E;
 
-                      &#x3C;/mjml-column&#x3E;
-                    &#x3C;/mjml-section&#x3E;
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                      &#x3C;/mj-column&#x3E;
+                    &#x3C;/mj-section&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
               &#x3C;/mjml&#x3E;
             </code>
           </pre>
@@ -920,7 +927,7 @@
           <ul>
             <li>all => all elements</li>
             <li>{tag} => all {tag}-elements</li>
-            <li>class => CSS like classes for mjml-elements</li>
+            <li>class => CSS like classes for mj-elements</li>
           </ul>
         </div>
       </section>
@@ -931,7 +938,7 @@
           <pre>
             <code data-trim data-noescape>
               &#x3C;mjml&#x3E;
-                &#x3C;mjml-head&#x3E;
+                &#x3C;mj-head&#x3E;
 
                   &#x3C;mj-style&#x3E;
                     @media all and (max-width: 480px) {
@@ -947,20 +954,20 @@
                     }
                   &#x3C;/mj-style&#x3E;
 
-                &#x3C;/mjml-head&#x3E;
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container&#x3E;
-                    &#x3C;mjml-section&#x3E;
-                      &#x3C;mjml-column&#x3E;
+                &#x3C;/mj-head&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container&#x3E;
+                    &#x3C;mj-section&#x3E;
+                      &#x3C;mj-column&#x3E;
 
-                        &#x3C;mjml-text&#x3E;
+                        &#x3C;mj-text&#x3E;
                           Hello &#x3C;a href="http://world.com" class="link-nostyle"&#x3E;World&#x3C;/a&#x3E;
-                        &#x3C;/mjml-text&#x3E;
+                        &#x3C;/mj-text&#x3E;
 
-                      &#x3C;/mjml-column&#x3E;
-                    &#x3C;/mjml-section&#x3E;
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                      &#x3C;/mj-column&#x3E;
+                    &#x3C;/mj-section&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
               &#x3C;/mjml&#x3E;
             </code>
           </pre>
@@ -979,31 +986,31 @@
           <pre>
             <code data-trim data-noescape>
               &#x3C;mjml&#x3E;
-                &#x3C;mjml-head&#x3E;
+                &#x3C;mj-head&#x3E;
 
                   &#x3C;mj-font name="Raleway" href="https://fonts.googleapis.com/css?family=Raleway" /&#x3E;
 
-                &#x3C;/mjml-head&#x3E;
-                &#x3C;mjml-body&#x3E;
-                  &#x3C;mjml-container&#x3E;
-                    &#x3C;mjml-section&#x3E;
-                      &#x3C;mjml-column&#x3E;
+                &#x3C;/mj-head&#x3E;
+                &#x3C;mj-body&#x3E;
+                  &#x3C;mj-container&#x3E;
+                    &#x3C;mj-section&#x3E;
+                      &#x3C;mj-column&#x3E;
 
-                        &#x3C;mjml-text font-family="Raleway, Arial"&#x3E;
+                        &#x3C;mj-text font-family="Raleway, Arial"&#x3E;
                           Hello World
-                        &#x3C;/mjml-text&#x3E;
+                        &#x3C;/mj-text&#x3E;
 
-                      &#x3C;/mjml-column&#x3E;
-                    &#x3C;/mjml-section&#x3E;
-                  &#x3C;/mjml-container&#x3E;
-                &#x3C;/mjml-body&#x3E;
+                      &#x3C;/mj-column&#x3E;
+                    &#x3C;/mj-section&#x3E;
+                  &#x3C;/mj-container&#x3E;
+                &#x3C;/mj-body&#x3E;
               &#x3C;/mjml&#x3E;
             </code>
           </pre>
         </div>
         <div class="col col--one-third">
           <ul>
-            <li>importiert fonts into document</li>
+            <li>import fonts into document</li>
           </ul>
         </div>
       </section>
@@ -1013,23 +1020,23 @@
         <h3>Custom Elements</h3>
         <p>Tutorial: <br/>
           <a
-            href="https://medium.com/mjml-making-responsive-email-easy/tutorial-creating-your-own-mjml-component-d3a236ab7093">tutorial-creating-your-own-mjml-component</a>
+            href="https://medium.com/mj-making-responsive-email-easy/tutorial-creating-your-own-mj-component-d3a236ab7093">tutorial-creating-your-own-mj-component</a>
         </p>
         <p>Boilerplate: <br/>
-          <a href="https://github.com/mjmlio/mjml-component-boilerplate">https://github.com/mjmlio/mjml-component-boilerplate</a>
+          <a href="https://github.com/mjmlio/mj-component-boilerplate">https://github.com/mjmlio/mj-component-boilerplate</a>
         </p>
       </section>
 
       <section>
         <pre>
           <code data-trim data-noescape>
-            import { MJMLElement } from &#x27;mjml-core&#x27;
+            import { MJMLElement } from &#x27;mj-core&#x27;
             import React, { Component } from &#x27;react&#x27;
             import reverse from &#x27;lodash/reverse&#x27;
-            import Section from &#x27;mjml-section&#x27;
-            import Column from &#x27;mjml-column&#x27;
-            import Image from &#x27;mjml-image&#x27;
-            import Text from &#x27;mjml-text&#x27;
+            import Section from &#x27;mj-section&#x27;
+            import Column from &#x27;mj-column&#x27;
+            import Image from &#x27;mj-image&#x27;
+            import Text from &#x27;mj-text&#x27;
 
             // Tag Name
             const tagName = &#x27;mj-column-image-text&#x27;
@@ -1051,7 +1058,7 @@
               },
             }
 
-            @MJMLElement
+            @MJMLElement //Decorator
             class ColumnImageText extends Component {
 
               renderImage () {
@@ -1240,22 +1247,22 @@
     </section>
 
     <section>
-      <h2>Conclusion</h2>
+      <h2>Summary</h2>
       <section>
         <h3>HTML emails fee like hell because...</h3>
         <ul>
           <li>... missing standards for email clients</li>
-          <li class="fragment" data-fragment-index="1">... table-based layouts</li>
-          <li class="fragment" data-fragment-index="2">... consitional tags</li>
-          <li class="fragment" data-fragment-index="3">... maintainability</li>
+          <li>... table-based layouts</li>
+          <li>... conditional tags</li>
+          <li>... maintainability</li>
         </ul>
       </section>
       <section>
         <h3>MJML helps, because ...</h3>
         <ul>
           <li>... it is quick and easy</li>
-          <li class="fragment" data-fragment-index="1">... it is component based</li>
-          <li class="fragment" data-fragment-index="2">... it is testable</li>
+          <li>... it is component based</li>
+          <li>... it is testable</li>
         </ul>
       </section>
     </section>
@@ -1269,7 +1276,7 @@
       <img data-src="assets/party-hard.gif" style="width: 20vw"/>
       <p>Let's have some drinks and pizza!</p>
       <small>
-        <a href="https://github.com/aalibaabaa/mjml-presentation">https://github.com/aalibaabaa/mjml-presentation</a>
+        <a href="https://github.com/aalibaabaa/mj-presentation">https://github.com/aalibaabaa/mj-presentation</a>
       </small>
     </section>
   </div>
