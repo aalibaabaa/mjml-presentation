@@ -3,6 +3,8 @@
 ### Description
 It is the year 2017, but coding responsive HTML emails still feels like being in the 90s when you have to support all the different email clients. René will share with you some his experiences with email-templating and give an introduction in tools like mandrill, litmus and MJML.
 
+[https://aalibaabaa.github.io/mjml-presentation/presentation/](https://aalibaabaa.github.io/mjml-presentation/presentation/)
+
 ### Presentation (reveal.js)
 prerequisites: node.js > 6
 
